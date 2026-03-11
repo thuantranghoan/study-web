@@ -1,0 +1,1 @@
+# study-nextjs\n\nMột repo học Next.js với màn hình `Hello World` được làm đẹp ngay từ đầu.\n\n## Stack\n\n- Next.js\n- React\n- TypeScript\n- Tailwind CSS\n\n## Chạy local\n\n```bash\nnpm install\nnpm run dev\n```\n\nMở `http://localhost:3000` để xem.\n\n## Build production\n\n```bash\nnpm run build\nnpm start\n```\n
