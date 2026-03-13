@@ -1,3 +1,20 @@
+import Link from "next/link";
+
+const features = [
+  {
+    title: "App Router",
+    description: "Tổ chức route bằng thư mục src/app và thêm màn hình mới rất nhanh.",
+  },
+  {
+    title: "TypeScript",
+    description: "Giữ code dễ bảo trì hơn khi tiếp tục mở rộng project học tập.",
+  },
+  {
+    title: "Tailwind CSS",
+    description: "Dựng UI gọn, nhanh, phù hợp để thử layout và component.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
@@ -9,7 +26,7 @@ export default function Home() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-white/80 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.12)]">
               <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
-              Study Next.js • Beautiful starter screen
+              Study Next.js • Updated starter
             </div>
 
             <div className="space-y-5">
@@ -17,49 +34,42 @@ export default function Home() {
                 Next.js App Router
               </p>
               <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-                Hello World,
+                Học Next.js,
                 <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-violet-400 bg-clip-text text-transparent">
-                  but make it gorgeous.
+                  bắt đầu bằng một UI gọn và đẹp.
                 </span>
               </h1>
               <p className="max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                Một màn hình chào mừng được dựng bằng Next.js với layout hiện đại,
-                nền gradient nhiều lớp, glassmorphism và điểm nhấn neon — đủ đẹp để
-                làm landing page mở đầu cho repo học tập.
+                Trang chủ giờ đóng vai trò như landing page nhỏ cho repo học tập, đồng thời liên kết
+                tới một màn hình mới để luyện tạo route bằng App Router.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 px-6 py-3 text-sm font-semibold text-slate-950 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(14,165,233,0.35)]"
+              >
+                Mở màn hình mới
+              </Link>
               <a
                 href="https://nextjs.org/docs"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 px-6 py-3 text-sm font-semibold text-slate-950 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(14,165,233,0.35)]"
-              >
-                Explore Next.js
-              </a>
-              <a
-                href="https://vercel.com/new"
-                target="_blank"
-                rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/8 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/12"
               >
-                Deploy when ready
+                Xem docs Next.js
               </a>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                ["Fast", "App Router + React 19 + Turbopack-ready setup"],
-                ["Clean", "TypeScript, ESLint, Tailwind sẵn để học nghiêm túc"],
-                ["Pretty", "Hero section đẹp mắt để bắt đầu project không nhạt"],
-              ].map(([title, desc]) => (
+              {features.map((feature) => (
                 <div
-                  key={title}
+                  key={feature.title}
                   className="rounded-2xl border border-white/10 bg-white/6 p-5 backdrop-blur-md shadow-[0_10px_30px_rgba(15,23,42,0.35)]"
                 >
-                  <h2 className="text-lg font-semibold text-white">{title}</h2>
-                  <p className="mt-2 text-sm leading-6 text-white/65">{desc}</p>
+                  <h2 className="text-lg font-semibold text-white">{feature.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-white/65">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -77,8 +87,8 @@ export default function Home() {
               <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/75 p-6">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <div>
-                    <p className="text-sm text-white/45">app/page.tsx</p>
-                    <p className="mt-1 text-lg font-semibold">Beautiful hello screen</p>
+                    <p className="text-sm text-white/45">src/app/about/page.tsx</p>
+                    <p className="mt-1 text-lg font-semibold">New screen added</p>
                   </div>
                   <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-200">
                     Ready
@@ -87,23 +97,20 @@ export default function Home() {
 
                 <div className="mt-6 space-y-4 font-mono text-sm leading-7 text-white/75">
                   <p>
-                    <span className="text-fuchsia-300">const</span>{" "}
-                    <span className="text-cyan-300">message</span> ={" "}
-                    <span className="text-emerald-300">&quot;Hello World&quot;</span>;
+                    <span className="text-fuchsia-300">route</span>:
+                    <span className="ml-2 text-emerald-300">/about</span>
                   </p>
                   <p>
-                    <span className="text-fuchsia-300">const</span>{" "}
-                    <span className="text-cyan-300">vibe</span> ={" "}
-                    <span className="text-emerald-300">&quot;clean + modern + glowing&quot;</span>;
+                    <span className="text-fuchsia-300">goal</span>:
+                    <span className="ml-2 text-emerald-300">practice app router + UI composition</span>
                   </p>
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-white">
-                    <p className="text-white/55">Preview</p>
+                    <p className="text-white/55">What changed</p>
                     <p className="mt-3 text-2xl font-bold tracking-tight text-white">
-                      {"<h1>Hello World</h1>"}
+                      New screen + updated README
                     </p>
                     <p className="mt-2 text-sm leading-6 text-white/60">
-                      Một repo học Next.js bắt đầu bằng thứ gì đó nhìn đã mắt hơn mặc
-                      định.
+                      Vừa có route mới, vừa có mô tả rõ hơn để tiếp tục học và mở rộng repo.
                     </p>
                   </div>
                 </div>
